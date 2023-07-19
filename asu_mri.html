@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ASU Master Thesis Left-hemisphere Stroke Survivor MRI Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+	
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<h2><strong>YI-TING THE DATA ANALYST</strong></h2>
+						<p>SQL, Python, R<br />
+							Databases｜Data Science｜Statistical Analysis｜Industrial Engineering｜Neuroimaging</p>
+				</div>
+			</header>
+
+
+
+
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<h1>Structural MRI and DTI 影像處理</h1>
+						<span class="image fit"><img src="images/portfolio/stroke_dti1.jpg" alt="" /></span>
+						<p>在這篇碩士論文中，我使用 FreeSurfer 進行結構性磁振造影數據處理，以及使用 FSL 處理擴散張量磁振造影，接著獲取影統計數據後，
+							用 R 做資料處理、統計分析、及做圖。最終提出對於左腦中風病人術後的右腦在灰質和白質的可能變化。</p>
+						<p>使用的統計分析跟做圖軟體: R, R Studio<br />
+							磁振造影數據處理軟體: FreeSurfer, FSL, MRICron</p>
+					
+				<!-- One -->
+					<section id="one">
+						<h2>研究問題</h2>
+							<p>左腦中風病人的潛在右腦變化</p>
+							<p>Which, if any, structural or diffusion MRI measures in the right hemisphere differ between chronic left hemisphere stroke survivors and neurotypical control subjects?</p>
+							<p>Could these right cortical and white matter tract differences reflect compensation for the loss of left hemispheric language functions?</p>
+							<p>下圖是朋友友情贊助的病灶重疊圖</p>
+							<span class="image fit"><img src="images/portfolio/stroke_lesion.jpg" alt="" /></span>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Poster Presented on 12th Annual Meeting of the Society for the Neurobiology of Language</h2>
+							<span class="image fit"><img src="images/portfolio/snl2020.jpg" alt="" /></span>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<div>
+							<h2>數據處理: 結構性磁振造影 T1-weighted Images</h2>
+								<p><span class="image right"><img src="images/portfolio/stroke_brainLabel.jpg" alt="" /></span>結構性磁振造影經過 FreeSurfer 分割後的腦區如右側示意圖，我僅分析右半腦中與語言功能相關的 16 個腦區。</p>
+								<p>測量值為每個腦區的灰質容積、平均厚度、平均曲率，以及白質容積、intensity。</p>
+						</div>	
+					
+						<div>
+							<h2>數據處理: 擴散張量磁振造影 Diffusion Tensor Images (DTI)</h2>
+								<p>在前處理過後，跑 voxel-wise exploratory analysis: Tract-Based Spatial Statistics (TBSS)</p>
+								<span class="image fit"><img src="images/portfolio/stroke_dti2.jpg" alt="" /></span>
+								
+								<p>接著跑每一個病人跟控制組受試者的 ROI-based analysis: Tractography，重建九條白質束 (AF, FAT, SLF1, SLF2, SLF3, UF, ILF, MdLF, IFOF)。</p>
+								<span class="image fit"><img src="images/portfolio/stroke_dti3.jpg" alt="" /></span>
+						</div>	
+					</section>
+
+				<!-- Four -->
+					<section id="four">
+						<h2>統計分析</h2>
+							<p>針對這組數據我跑了好幾種分析：<br />
+								Structural MRI measures (T1) vs. Diffusion MRI measures (DTI)<br />
+								ROI-based vs. Voxel-wise<br />
+								Between-group analyses (Stroke survivors vs. Control subjects)<br />
+								Correlation analyses (within stroke group)<br />
+								Exploratory ROI-based Bayesian single-subject analyses<br />
+								Controlling for multiple comparisons using fdr, also age and lesion size
+							</p>
+
+						<h2>視覺化結果</h2>
+							<p>結果發現，左腦中風病人的認知處理速度跟右側額葉灰質厚度有顯著正相關。</p>
+							<span class="image fit"><img src="images/portfolio/stroke_result.jpg" alt="" /></span>
+					</section>
+							
+				<!-- Five -->
+					<section id="five">
+						<h2>Results Summary</h2>
+							<ol>
+								<li>White and gray matter volumes did not differ between the stroke and control groups, but the cortical thickness in the right frontal, parietal, and insula regions were thinner in the stroke survivors.</li>
+								<li>Cortical thickness in right frontal cortex was positively associated with processing speed.</li>
+								<li>FA in the right hemisphere’s ventral stream were lower in the stroke survivors than the controls, whereas MD did not differ between groups.</li>
+								<li>The estimated number of fibers in the right ventral tracts was lower in the stroke survivors than the controls, whereas the number did not differ in the right dorsal tracts. Meanwhile, the tract volumes were smaller in all the right tracts in the stroke group than in the control group.</li>
+							</ol>
+					</section>
+
+				<!-- Six -->
+					<section id="six">
+						<h2>其他</h2>
+							<p>我寫過一些介紹 DTI, FSL, MRI 的文章在 Medium</p>
+							<ul>
+								<li><a href="https://medium.com/@ayt.hsueh/擴散張量影像處理-diffusion-tensor-imaging-dti-processing-一-名詞介紹-501d936be611">擴散張量影像處理 Diffusion Tensor Imaging(DTI) processing （一）名詞介紹</a></li>
+								<li><a href="https://medium.com/@ayt.hsueh/安裝-fsl-在-mac-上-de635a801be0">安裝 FSL 在 Mac 上</a></li>
+								<li><a href="https://medium.com/@ayt.hsueh/神經成像檔案類型-intro-to-file-types-in-neuroimaging-c31585bc5e91">神經成像檔案類型 (Intro to file types in neuroimaging)</a></li>
+							</ul>
+					</section>
+
+				</div>
+			</div>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://twitter.com/yiting_hsueh" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/aythsueh" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto: a0937247174@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
