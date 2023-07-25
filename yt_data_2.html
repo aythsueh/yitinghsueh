@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Project YouTube Data API v3</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+	
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<h2><strong>YI-TING THE DATA ANALYST</strong></h2>
+					<p>SQL, Python, R<br />
+						Databases｜Data Science｜Statistical Analysis｜Industrial Engineering｜Neuroimaging</p>
+				</div>
+			</header>
+
+
+
+			
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<h1>YouTube 數據抓取及分析 follow-up</h1>
+						<span class="image fit"><img src="images/fulls/02.jpg" alt="" /></span>
+						<p>在這個 YouTube Data 後續分析中，我抓取 Jr.EXILE 建立的播放清單中的影片統計數據後，分析並視覺化。補足上一個分析的缺點。</p>
+						<p>使用的程式語言跟平台: Python, Google Colaboratory<br />
+							抓取數據的網站: YouTube<br />
+							使用的套件: pandas, seaborn<br />
+							程式完全在 Google Colab 上運作，檔案也都存放在 Google Drive 雲端。</p>
+					
+				<!-- One -->
+					<section id="one">
+						<h2>文章</h2>
+							<p>文章同步在 Medium</p>
+							<ul>
+								<li><a href="https://medium.com/@ayt.hsueh/python-project-1-youtube-播放清單的影片統計數據抓取-分析-視覺化-5-4197881eb9e6">Python Project (1)- YouTube 播放清單的影片統計數據抓取+分析+視覺化 #5</a></li>
+							</ul>
+                            <p>本篇接續處理上一篇發生的分類問題。<br />
+                                上次是在影片標題找關鍵字（例如，music video 或是 dance etc.），再做類別標籤，但因為 gene 頻道大多只放團體名跟歌名，所以沒有抓到影片類型。<br />
+                                今天直接到各頻道找他們自己放的播放清單。優點有二：<br />
+                                <ul>
+                                    <li>官方分類好 Music Video, Live & Stage, Dance Video etc.</li>
+                                    <li>抓得到其他頻道上傳的官方影片（主要是 avex）</li>
+                                </ul>
+                                缺點只有一個，也很明顯，就官方沒放在播放清單就抓不到了。像是沒在更新播放清單，或是根本沒在經營這塊的….（就是在說你、 BBZ ）</p>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>專案目標</h2>
+							<ol>
+								<li>比較日本 Jr.EXILE 五個團體在 YouTube 的人氣</li>
+								<li>分析每個團體的可能強項 (music video, dance video, live video)</li>
+							</ol>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>時間</h2>
+							<p>數據抓取時間在 2023/7/25</p>
+							
+					</section>
+
+				<!-- Four Music Video 分析 -->			
+					<section id="four">
+						<h2>Music Video 分析</h2>
+                            <p>因為 Music Video 是最重要的作品，所以單獨分析每一個團體的 Music Video 播放清單。</p>
+                            <p> views(millions), likes, comments </p>
+							<h4>gene</h4>
+								<span class="image fit"><img src="images/portfolio/gene_MusicVideo.png" alt="" /></span>
+								<p>gene 的 Music Videos 主要是在唱片公司 avex 的 YouTube 頻道發佈（這也顯示了上一次分析的問題，不少影片不是在自己頻道上架）<br />
+                                    有趣的是留言都集中在 gene 自己頻道發佈的影片<br /><br /></p> 
+							
+                            <h4>rmpg</h4>
+                                <span class="image fit"><img src="images/portfolio/rmpg_MusicVideo.png" alt="" /></span>
+                                <p>跟 gene 的 pattern 差不多，但自己頻道發佈的 Music Videos 也不少 likes<br />
+                                    一首跟 gene 合作的 SHOOT IT OUT 表現亮眼<br /><br /></p> 
+                                
+                            <h4>fanta</h4>
+                                <span class="image fit"><img src="images/portfolio/fanta_MusicVideo.png" alt="" /></span>
+                                <p>fanta 最多 views and likes 的 Music Videos 中，有將近一半是跟 Jr.EXILE 其他團體的合作曲，甚至佔了 top 3 views<br />
+                                    最多留言的影片中，前四支也太突出，跟後面的斷層看起來有點搞笑😂<br /><br /></p> 
+    
+                            <h4>bbz</h4>
+                                <span class="image fit"><img src="images/portfolio/bbz_MusicVideo.png" alt="" /></span>
+                                <p>跟 fanta 類似，最多 views and likes 有三分之一是跟其他團體的合作曲<br />
+                                    不過， bbz 的 top 3 都是自己的歌<br /><br /></p> 
+
+                            <h4>pcf</h4>
+                                <span class="image fit"><img src="images/portfolio/gene_MusicVideo.png" alt="" /></span>
+                                <p>新團數據比較少，看不太出有趣的 pattern<br /><br /></p> 
+             
+					</section>
+						
+				<!-- Five Jr.EXILE Top 10 影片分析 -->		
+					<section id="five">
+						<h2>Jr.EXILE Top 10 影片分析</h2>
+							<p>抓取五個頻道的播放清單影片資訊後，根據 views, likes, comments 的數量排序，得到下面三組長條圖</p>
+							<h4>Top 10 Music Videos</h4>
+								<p><span class="image fit"><img src="images/portfolio/all_MusicVideo.png" alt="" />Music Video 幾乎是 gene 的歌有最多的 views and likes<br />
+                                    comments 還是這麼有趣，又是 fanta 的影片獲得最多的留言</span></p>
+
+                            <h4>Top 10 Live and Stage Videos</h4>
+								<p><span class="image fit"><img src="images/portfolio/all_Live.png" alt="" />Live and Stage 的影片幾乎是 rmpg 有最多的 views and likes<br />
+                                    comments 則是 gene 獲得較多的留言</span></p>
+
+                            <h4>Top 10 Dance Videos</h4>
+                                <p><span class="image fit"><img src="images/portfolio/all_Dance.png" alt="" />Dance 影片是 rmpg, gene, fanta 都有一定程度的 views, likes and comments</span></p>
+						
+                            <h4>小結</h4>
+                                <p>直到這個分析才真正找到能回答我最初的問題的證據，也就是，在所有舞蹈影片中， fanta 有較多支舞蹈影片獲得較多的觀看次數。白話來說， fanta 的確在舞蹈影片方面表現較自己其他種類的影片還要受關注。</p>
+                                <p>對每個團的短評：</p>
+								<ul>
+									<li>gene 在 music video 的觀看次數看起來很厲害。</li>
+									<li>rmpg 一如繼往在每個 YouTube 影片的指標分析皆表現亮眼。</li>
+									<li>fanta 沒有專屬自己的熱門歌曲，是一件有點可惜的事。</li>
+									<li>bbz 彷彿沒在認真經營 YouTube 頻道，抓不太到資料。</li>
+									<li>pcf 依然讓我覺得相當有潛力。</li>
+								</ul>
+                                <p>最後，讓 Jr.EXILE 彼此合作的企劃 BOT 很重要，帶後輩團的效果挺好的。</p>
+                                <p>以上！</p>
+					</section>
+						
+                    
+				<!-- Six BOT 影片分析 -->		
+					<section id="six">
+						<h2>BOT 影片分析</h2>
+							<p>一樣的問題是沒有考慮團體出道時間跟影片發佈時間，因為我還沒想到怎麼放進分析啊哈哈🙇🏻‍♀️</p>
+                            <p>那就加碼一個最新的 BOT 五個影片的 YouTube 影片統計數據！（2023/7/25）</p>
+                            <p><span class="image fit"><img src="images/portfolio/all_bot.png" alt="" />rmpg 真的穩定的表現優異</span></p>
+						
+                            <p>居然也默默更新到第五篇了。</p>
+                            <p>有任何問題歡迎來訊討論。</p>
+                            <p>有緣下次 YouTube Data 專案見👋</p>
+                            <p><s>然後希望 HIRO桑可以 hire 我（突然的心裡話？），</s>我很嚮往 LDH 的企業文化呢。</p>
+					</section>
+						
+
+				</div>
+			</div>
+
+
+			
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://twitter.com/yiting_hsueh" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/aythsueh" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto: a0937247174@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2023 薛依婷</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
