@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Projects for Certificates</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+	
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+					<h1><strong>YI-TING THE DATA ANALYST</strong></h1>
+					<p>SQL, Python, R<br />
+						Databases｜Data Science｜Statistical Analysis｜Industrial Engineering｜Neuroimaging</p>
+				</div>
+			</header>
+
+
+
+			
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<h1>Python 數據分析小專案</h1>
+						<span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span>
+						<p>這一集是 freeCodeCamp 'Data Analysis with Python' 課程中，使用 Python 練習的五個基本的數據分析，把 code 整理在這邊，並試著改得更精簡。並試著對圖表提出解釋。</p>
+						<p>
+							使用的程式語言跟平台: Python, Google Colaboratory<br />
+							使用套件: pandas, matplotlib, seaborn
+						</p>
+					
+				<!-- One -->
+					<section id="one">
+						<h2>平均值、變異數、標準差計算 (Mean-Variance-Standard Deviation Calculator)</h2>
+						<p>這一題算是基礎數學題，跟 Python 基本功。沒有分析的成分，就不放 code 了。</p>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>人口統計數據分析 (Demographic Data Analyzer)</h2>
+						<p>數據來源: Markelle Kelly, Rachel Longjohn, Kolby Nottingham, <a href="https://archive.ics.uci.edu">The UCI Machine Learning Repository</a></p>
+						<ul>
+							<li>How many people of each race are represented in this dataset? This should be a Pandas series with race names as the index labels. (race column)</li>
+							<p>在這個數據集中，每一個種族的人數分別為多少。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q1.py"></script>
+							</p>
+
+							<li>What is the average age of men?</li>
+							<p>要計算男性的平均年齡，做法是先選擇 “age” 這個欄位，再用 “sex” 欄位去做篩選，也就是包括 “Male” 的字串，接著取這些數值的平均，最後四捨五入到小數點後一位。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q2.py"></script>
+							</p>
+
+							<li>What is the percentage of people who have a Bachelor's degree?</li>
+							<p>擁有學士學位的人口比例。先計算 “education” 欄位中每個不重複值的數量，再篩選 “Bachelors” ，得到擁有學士學位的人數，接著除以資料框的長度 aka 此次人口普查的總人口數。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q3.py"></script>
+							</p>
+
+							<li>What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?</li>
+							<li>What percentage of people without advanced education make more than 50K?</li>
+							<p>這兩題可以一起回答。先做兩個 masks ，第一個是用 OR operator 篩選出有學士或碩士碩博士學位的人，第二個是篩選出年薪超過 50K 的人。<br />
+								受過高等教育的人中，年薪超過 50K 的比例。那就是用 AND operator 篩選符合兩個 masks 的人，再除以受過高等教育的人數。<br />
+								<b>沒有</b>受過高等教育的人中，年薪超過 50K 的比例。計算方式與前一題一樣，差別在於須在 mask 前面放一個 NOT operator 。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q4.py"></script>
+							</p>
+							
+							<li>What is the minimum number of hours a person works per week (hours-per-week feature)?</li>
+							<p>每週工作時數最少是多少。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q5.py"></script>
+							</p>
+
+							<li>What percentage of the people who work the minimum number of hours per week have a salary of >50K?</li>
+							<p>每週工作時數最少的人中，還賺超過 50K 的人的比例。（這題是出來給人羨慕嫉妒的吧XD）<br />
+								那在剛剛已經求出最少工作時數了，這邊可以直接拿來當篩選的值。篩選完的新資料框再篩選出年薪超過 50K 的人。計算方式跟前面的球比例是一樣的邏輯，就不再重複。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q6.py"></script>
+							</p>
+
+							<li>What country has the highest percentage of people that earn >50K?</li>
+							<p>哪個國家的人年薪超過 50K 的人口比例最高。先用一個 for loop 計算每個國家年薪超過 50K 的人口比例，再用一個資料框放國家與年薪超過 50K 的人口比例，接著一個 max() 就能知道最多有錢人的國家是誰以及該比例了。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q7.py"></script>
+							</p>
+
+							<li>Identify the most popular occupation for those who earn >50K in India.</li>
+							<p>在印度年薪超過 50K 的人中，最收歡迎的職業。
+								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q8.py"></script>
+							</p>
+						</ul>
+						
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>醫療數據視覺化 (Medical Data Visualizer)</h2>
+						<p>To be updated.</p>
+					</section>
+				
+				<!-- Four -->
+					<section id="four">
+						<h2>頁面瀏覽時間序列視覺化 (Page View Time Series Visualizer)</h2>
+						<p>數據來源: freeCodeCamp 提供的網頁瀏覽數據</p>
+						<ul>
+							<li>Use Pandas to import the data from "fcc-forum-pageviews.csv". Set the index to the date column.</li>
+							<p>因為我是在 Google Colab 上運行，所以需要載入相關套件（i.e., google.colab）。
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q1.py"></script>
+							</p>
+
+							<li>Clean the data by filtering out days when the page views were in the top 2.5% of the dataset or bottom 2.5% of the dataset.</li>
+							<p>清理數據，不要極端值 aka 低於 2.5% 或是高於 97.5% 的單日瀏覽量。
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q2.py"></script>
+							</p>
+
+							<li>Create a draw_line_plot function that uses Matplotlib to draw a line chart similar to "examples/Figure_1.png". The title should be Daily freeCodeCamp Forum Page Views 5/2016-12/2019. The label on the x axis should be Date and the label on the y axis should be Page Views.</li><br />
+							<p>透過時間序列的折線圖看趨勢
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q3.py"></script>
+								<span class="image fit"><img src="images/portfolio/fcc_line_plot.png" alt="" /></span>
+								根據這張圖，我注意到以下 3 個 insights:
+								<ol>
+									<li>在 2016/5/9 到 2019/12/3 之間 freeCodeCamp 網頁的瀏覽次數隨著時間逐漸上升。穩定成長。</li>
+									<li>2017年7月跟2019年10月左右，都有一個較大幅度的增加，也許當時辦了什麼活動，或是名人宣傳，讓知名度打開。</li>
+									<li>2016年、2017年、2018年在接近年底那邊，以及2017年中左右都有一個瞬間極高的瀏覽量(spike)。猜測這三年每年固定將近年底都有一個為期兩天的活動，或是其他定期的可以瞬間吸引大眾注意力的事件。</li>
+								</ol>
+								雖然折線圖很好的告訴我們關於每一天的資訊，以及大概的 pattern ，但無法得知事件確切的月份，所以我們接著看下一張根據年份跟月份做平均的長條圖。
+							</p>
+
+							<li>Create a draw_bar_plot function that draws a bar chart similar to "examples/Figure_2.png". It should show average daily page views for each month grouped by year. The legend should show month labels and have a title of Months. On the chart, the label on the x axis should be Years and the label on the y axis should be Average Page Views.</li><br />
+							<p>先做出資料框
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q4-1.py"></script>
+								再做圖
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q4-2.py"></script>
+								<span class="image fit"><img src="images/portfolio/fcc_bar_plot.png" alt="" /></span>
+								根據這張圖，我發現 3 個 insights:
+								<ol>
+									<li>freeCodeCamp 網頁的瀏覽次數隨著年份穩定增加。跟折線圖的insight一樣。</li>
+									<li>春季月份的平均瀏覽量似乎會突然減少。</li>
+									<li>月平均可以清楚看到，折線圖發現的 spikes 發生在2016年11月、2017年7月、2017年11月、2018年10月。另外在2019年的10-12月也有增加的平均瀏覽量。</li>
+								</ol>
+								但我其實不太喜歡這張圖，顏色過多，眼花撩亂，不太容易找到月份。另外，為了找到季節/月份對頁面瀏覽量的影響，下一張箱型圖也許可以告訴我們一些資訊。
+							</p>
+
+							<li>Create a draw_box_plot function that uses Seaborn to draw two adjacent box plots similar to "examples/Figure_3.png". These box plots should show how the values are distributed within a given year or month and how it compares over time. The title of the first chart should be Year-wise Box Plot (Trend) and the title of the second chart should be Month-wise Box Plot (Seasonality). Make sure the month labels on bottom start at Jan and the x and y axis are labeled correctly. The boilerplate includes commands to prepare the data.</li><br />
+							<p>直接拿上一題的資料框就可以做這題的圖了。
+								<script src="https://gist.github.com/aythsueh/e526566169f511cdbf8a11d8a826c716.js?file=q5.py"></script>
+								<span class="image fit"><img src="images/portfolio/fcc_box_plot.png" alt="" /></span>
+								左邊的年平均很清楚網站每一年都在穩定成長。
+								右邊的月平均則發現，的確10月開始瀏覽量增加，到1、2月略減；3月到9月大致差不多，5月有最少的平均瀏覽量。
+							</p>
+						</ul>
+
+					</section>
+
+				<!-- Five -->
+					<section id="five">
+						<h2>海平面預測 (Sea Level Predictor)</h2>
+						<p>To be updated.</p>
+					</section>	
+
+				</div>
+			</div>
+
+
+			
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://twitter.com/yiting_hsueh" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/aythsueh" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto: a0937247174@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2023 薛依婷</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
