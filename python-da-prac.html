@@ -11,17 +11,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+
 	<body class="is-preload">
 	
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-					<h1><strong>YI-TING THE DATA ANALYST</strong></h1>
-					<p>SQL, Python, R<br />
-						Databases｜Data Science｜Statistical Analysis｜Industrial Engineering｜Neuroimaging</p>
-				</div>
-			</header>
+	<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+				<h1><strong>YI-TING THE DATA ANALYST</strong></h1>
+				<p>SQL, Python, R<br />
+					Database Management｜Data Science & Visualization<br />
+					Industrial Engineering｜Cognitive Psychology<br />
+					Statistics｜Neuroimaging</p>
+			</div>
+		</header>
 
 
 
@@ -31,21 +34,35 @@
 				<div class="inner">
 					<h1>Python 數據分析小專案</h1>
 						<span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span>
-						<p>這一集是 freeCodeCamp 'Data Analysis with Python' 課程中，使用 Python 練習的五個基本的數據分析，把 code 整理在這邊，並試著改得更精簡。並試著對圖表提出解釋。</p>
+						<p>這一集是 freeCodeCamp 'Data Analysis with Python' 課程中，使用 Python 練習的五個基本的數據分析，把 code 整理在這邊，並試著改得更精簡或提高易讀性。這篇另一個重點是，我試著針對圖表做解釋、提出潛在的洞見。
+							<ul>
+								<li><a href="#one">平均值、變異數、標準差計算 (Mean-Variance-Standard Deviation Calculator)</a></li>
+								<li><a href="#two">人口統計數據分析 (Demographic Data Analyzer)</a></li>
+								<li><a href="#three">醫療數據視覺化 (Medical Data Visualizer)</a></li>
+								<li><a href="#four">頁面瀏覽時間序列視覺化 (Page View Time Series Visualizer)</a></li>
+								<li><a href="#five">海平面預測 (Sea Level Predictor)</a></li>
+							</ul>
+						</p>
 						<p>
 							使用的程式語言跟平台: Python, Google Colaboratory<br />
-							使用套件: pandas, matplotlib, seaborn
+							使用套件: pandas, matplotlib, seaborn							
 						</p>
 					
 				<!-- One -->
 					<section id="one">
+					<hr>
+					<header class="major">
 						<h2>平均值、變異數、標準差計算 (Mean-Variance-Standard Deviation Calculator)</h2>
+					</header>
 						<p>這一題算是基礎數學題，跟 Python 基本功。沒有分析的成分，就不放 code 了。</p>
 					</section>
 
 				<!-- Two -->
 					<section id="two">
+						<hr>
+					<header class="major">
 						<h2>人口統計數據分析 (Demographic Data Analyzer)</h2>
+					</header>
 						<p>數據來源: Markelle Kelly, Rachel Longjohn, Kolby Nottingham, <a href="https://archive.ics.uci.edu">The UCI Machine Learning Repository</a></p>
 						<ul>
 							<li>How many people of each race are represented in this dataset? This should be a Pandas series with race names as the index labels. (race column)</li>
@@ -88,7 +105,7 @@
 							</p>
 
 							<li>Identify the most popular occupation for those who earn >50K in India.</li>
-							<p>在印度年薪超過 50K 的人中，最收歡迎的職業。
+							<p>在印度年薪超過 50K 的人中，最受歡迎的職業。
 								<script src="https://gist.github.com/aythsueh/0db8ddd3b5fa3250ab2d82b28a75f3d4.js?file=q8.py"></script>
 							</p>
 						</ul>
@@ -97,13 +114,37 @@
 
 				<!-- Three -->
 					<section id="three">
+					<hr>
+					<header class="major">
 						<h2>醫療數據視覺化 (Medical Data Visualizer)</h2>
-						<p>To be updated.</p>
+					</header>
+						<p>主要是練習數據清理的過程。
+						<div>
+							<span class="image fit"><img src="images/portfolio/fcc_catplot.png" alt="" /></span>
+							這張圖主要的 insight 為，有心血管疾病的人與沒有心血管疾病的人在 (1) 有無運動習慣 (2) 有無酗酒 (3) 有無吸菸 的人數比例上“看起來”沒有差異。<br />
+							有心血管疾病的人，葡萄糖數值不正常、膽固醇較高、以及過重的人數較多。
+						</div>
+
+						<div>
+							接著我根據題目要求，計算所有變項之間的相關係數，做成 heapmap 熱圖，如下。
+							<span class="image fit"><img src="images/portfolio/fcc_heatmap.png" alt="" /></span>
+							顏色越接近深藍色，表示相關係數越大。注意到的3個地方是：
+							<ul>
+								<li>體重跟過重的相關係數是 0.7 、身高跟性別有 0.5 的正相關，理所當然。</li>
+								<li>葡萄糖跟膽固醇有 0.4 的正相關。</li>
+								<li>心血管疾病的有無跟其他變項沒有太大的相關性。</li>
+							</ul>
+							但是！0 or 1的類別變數之間的相關檢定應使用<b>卡方檢定（Chi-square Test）</b>。
+						</div>
+						</p>
 					</section>
 				
 				<!-- Four -->
 					<section id="four">
+					<hr>
+					<header class="major">
 						<h2>頁面瀏覽時間序列視覺化 (Page View Time Series Visualizer)</h2>
+					</header>
 						<p>數據來源: freeCodeCamp 提供的網頁瀏覽數據</p>
 						<ul>
 							<li>Use Pandas to import the data from "fcc-forum-pageviews.csv". Set the index to the date column.</li>
@@ -157,8 +198,19 @@
 
 				<!-- Five -->
 					<section id="five">
+					<hr>
+					<header class="major">
 						<h2>海平面預測 (Sea Level Predictor)</h2>
-						<p>To be updated.</p>
+					</header>
+						<p>
+							<span class="image right"><img src="images/portfolio/fcc_res_plot.png" alt="" /></span>
+							這題是簡單的線性迴歸分析，但視覺化後的圖簡單有力的告訴我們，海平面上升這個問題的迫切性。直接上圖！
+							<ul>
+								<li>紅線是自1880年到2013年，每一年的全球平均海平面對2050年海平面的預測 (10.18)。</li>
+								<li>藍線是使用從2000年後的數據對2050年海平面的預測 (15.38)。</li>
+							</ul>
+							2000年以後，海平面上升的速度變快了，是一個氣候變遷的證據，督促各國政府盡快想出應對方法。
+						</p>
 					</section>	
 
 				</div>
