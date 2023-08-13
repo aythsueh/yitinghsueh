@@ -2145,6 +2145,10 @@ input, select, textarea {
 				display: none;
 			}
 
+			.image.avatar:hover {
+				opacity: 0.3;
+			}
+
 			.image.avatar img {
 				border-radius: 100%;
 				width: 100%;
