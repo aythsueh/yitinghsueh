@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1EM84R79C"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-B1EM84R79C');
+		</script>
+		<link href="images/favicon.ico" rel="shortcut icon"/>
+		<title>ML Project | IBM HR Analytics Employee Attrition</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	
+	<body class="is-preload">
+	
+	<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="index.html" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+				<h1><strong>YI-TING HSUEH</strong></h1>
+				<p>SQL, Python, R<br />
+					AI｜ML｜Data Science & Visualization｜Database<br />
+					Industrial Engineering｜Cognitive Psychology<br />
+					Statistics｜Neuroimaging</p>
+			</div>
+		</header>
+
+
+
+			
+		<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<h1>海賊王真人版 IMDB 影評探索性資料分析</h1>
+						<span class="image fit"><img src="images/fulls/07.png" alt="" /></span>
+						<p></p>
+						<p>程式語言跟平台: Python, Google Colaboratory<br />
+							數據來源: <a href="https://www.kaggle.com/datasets/itsnobita/one-piece-live-action-imdb-reviews">One Piece Live Action IMDB Reviews</a><br />
+							Medium 文章: <a href="https://medium.com/@ayt.hsueh/ml-project-2-海賊王真人版-imdb-影評探索性資料分析-bd541ba078ee">ML Project (2)- 海賊王真人版 IMDB 影評探索性資料分析</a>
+							</p>
+					
+				<!-- One -->
+					<section id="one">
+					<hr>
+						<header class="major">
+							<h2>介紹</h2>
+						</header>
+						<div><h3>分析目標與問題</h3>
+						<p>想回答的問題有兩個：
+							<ol>
+								<li>海賊王真人版影集是否稱得上是商業成功？不滿意的觀眾是否多為原著粉？</li>
+								<li>訓練一個分類的 ML 模型去預測每一則評論的主觀情感（正面、負面或中性的）及情緒。</li>
+							</ol></p></div>
+							
+						<div><h3>分析方式</h3>
+							<ol>
+								<li>視覺化敘述統計 EDA: 數值型資料 “Rating”- 長條圖 + 折線圖；文本資料 “Reviews” & “Title”- 文字雲</li>
+								<li>文本情感分析 + ML 模型 (Logistic Regression) 分類評論的主觀情感</li>
+							</ol></div>
+
+						<div><h3>這個數據集</h3>
+							<ul>
+								<li>目前有 878 則評論</li>
+								<li>平均評分是 8.52 （數據清理後）</li>
+								<li>開播日 August 31, 2023</li>
+								<li>資料擷取到 October 10, 2023</li>
+								<li>遺漏值百分比 0.9%</li>
+								<li>應變數為 Rating</li>
+								<li>預測變數為 “Reviews”</li>
+							</ul></div>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+					<hr>
+						<header class="major">
+							<h2>Pipeline</h2>
+						</header>
+						<p>To be completed....
+						</p>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+					<hr>
+						<header class="major">
+							<h2>描述統計 EDA</h2>
+						</header>
+
+						<div><h3>評分 Rating 分布</h3>
+							<p><span class="image fit"><img src="images/portfolio/op_rating_dist.png" alt="" /></span>
+								從評分的數量來看，有一半的評論給了10分滿分，20%的人給了9分，11%的人給了8分，~19%的人給低於8分</p>
+						</div>
+
+						<div><h3>自開播日以來，在 IMDb 上每日的評論數量</h3>
+							<p><span class="image fit"><img src="images/portfolio/op_rating_overtime.png" alt="" /></span>
+								絕大多數的觀眾/ 評論者在開播後幾天內到 IMDb 網站留下評論<br />
+								~第十天以後，每天的評論數量降至20則以下<br />
+								不到一個月，每天僅有一兩則評論<br />
+								insight: 電視劇的成敗很大程度取決於開播後短時間內的熱度<br />
+								action: 開播前的宣傳最為重要，熱度過去後討論度下降的速度很快，此時的宣傳可能沒有開播前宣傳有效。</p>
+						</div>
+
+						<div><h3>IMDb 評論的每日平均給分 + 給分的中位數</h3>
+							<p><span class="image fit"><img src="images/portfolio/op_rating_median.png" alt="" /></span>
+								在 9/22 前，大多數的評論者給了十分的好評（median > mean）<br />
+								隨著時間的日平均有趣的地方在於，圖中有兩處低分<br />
+								於是我去抓了這兩天的評論，一共三則，內容大概是在說任用了年齡較大的演員、沒看過原著看不懂、演員演技不好。<br />
+								接著，為了讓評分的趨勢更清楚，我將這三則評論視為outliers，drop掉再畫一次折線圖<br /><br />
+								<span class="image fit"><img src="images/portfolio/op_rating_median2.png" alt="" /></span>
+								Oops! 十月初開始平均評分看起來有往下掉的趨勢，即使如此，依然有8分左右的高分<br />
+								需要再收集接下去日期的評論才能確定觀眾對海賊王真人版評價是否隨著時間下降
+							</p>
+						</div>
+
+						<div><h3>文字雲 (Word Cloud)</h3>
+							<p>在文本分析以前，先做了文字雲大致看一下評論標題跟內容出現較多的字是什麼
+								<span class="image fit"><img src="images/portfolio/op_wc_titles.png" alt="" /></span>
+								<span class="image fit"><img src="images/portfolio/op_wc_reviews.png" alt="" /></span>
+								這次的描述統計差不多就這樣囉。</p>
+						</div>
+
+					</section>
+
+				<!-- Four -->			
+					<section id="four">
+						<hr>
+						<header class="major">
+							<h2>ML 模型比較</h2>
+						</header>
+						<p>To be completed....
+						</p>
+					</section>
+						
+				<!-- Five -->		
+					<!-- <section id="five">
+					<hr>
+						<header class="major">
+							<h2>分類模型評估</h2>
+						</header>
+						<div>
+							<h3>Confusion Matrix</h3>
+							<span class="image fit"><img src="images/portfolio/op_cm.png" alt="" /></span>
+						<p>
+						</div>
+
+						<div>
+							<h3>ROC Curve</h3>
+							<span class="image fit"><img src="images/portfolio/op_roc.png" alt="" /></span>
+						</div>
+					</section> -->
+
+				<!-- Six -->		
+					<section id="six">
+					<hr>
+						<header class="major">
+							<h2>限制與建議方向 (limitations & future directions)</h2>
+						</header>
+						<p>To be completed....</p>
+					</section>
+
+				<!-- Seven -->
+					<section id="seven">
+					<hr>
+						<header class="major">
+							<h2></h2>
+						</header>
+						<p></p>
+					</section>
+							
+				</div>
+			</div>
+
+
+			
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://twitter.com/yiting_hsueh" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/aythsueh" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto: a0937247174@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; 2023 薛依婷</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

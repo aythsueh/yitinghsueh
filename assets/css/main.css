@@ -2131,6 +2131,7 @@ input, select, textarea {
 			display: block;
 			margin: 0 0 2em 0;
 			width: 100%;
+			border: solid 3px rgba(255, 255, 255, 0.5);
 		}
 
 			.image.fit img {
@@ -2703,6 +2704,18 @@ input, select, textarea {
 		}
 
 			#main > section:first-child {
+				border-top: 0;
+				margin-top: 0;
+				padding-top: 0;
+			}
+
+		#main > #inner > section {
+			border-top: solid 2px #efefef;
+			margin: 4em 0 0 0;
+			padding: 4em 0 0 0;
+		}
+
+			#main > #inner  > section:first-child {
 				border-top: 0;
 				margin-top: 0;
 				padding-top: 0;
